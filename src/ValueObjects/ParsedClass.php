@@ -1,6 +1,8 @@
 <?php
 
-namespace TailwindMerge\ValueObjects;
+declare(strict_types=1);
+
+namespace Cn\ValueObjects;
 
 class ParsedClass
 {
@@ -12,7 +14,7 @@ class ParsedClass
         public bool $hasImportantModifier,
         public bool $hasPostfixModifier,
         public string $modifierId,
-        public string $classGroupId,
+        public ?string $classGroupId,
         public string $baseClassName,
         public string $originalClassName,
     ) {

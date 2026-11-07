@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\ArbitraryShadowValidator;
+use Cn\Validators\ArbitraryShadowValidator;
 
 test('is arbitrary shadow', function ($input, $output) {
     expect(ArbitraryShadowValidator::validate($input))->toBe($output);

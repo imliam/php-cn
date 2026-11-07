@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\ArbitrarySizeValidator;
+use Cn\Validators\ArbitrarySizeValidator;
 
 test('is arbitrary size', function ($input, $output) {
     expect(ArbitrarySizeValidator::validate($input))->toBe($output);
@@ -8,7 +8,8 @@ test('is arbitrary size', function ($input, $output) {
     ['[size:2px]', true],
     ['[size:bla]', true],
     ['[length:bla]', true],
-    ['[percentage:bla]', true],
+    ['[percentage:bla]', false],
+    ['[bg-size:bla]', true],
 
     ['[2px]', false],
     ['[bla]', false],

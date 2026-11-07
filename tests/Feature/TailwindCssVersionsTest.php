@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('supports Tailwind CSS v3.3 features', function (string|array $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

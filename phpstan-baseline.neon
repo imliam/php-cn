@@ -19,55 +19,55 @@ parameters:
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\ClassMap\:\:isThemeGetter\(\) has parameter \$classDefinition with no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\ClassMap\:\:isThemeGetter\(\) has parameter \$classDefinition with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\ClassMap\:\:processClassesRecursively\(\) has parameter \$classGroup with no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\ClassMap\:\:processClassesRecursively\(\) has parameter \$classGroup with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\ClassMap\:\:processClassesRecursively\(\) has parameter \$theme with no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\ClassMap\:\:processClassesRecursively\(\) has parameter \$theme with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Parameter \#1 \$callback of method TailwindMerge\\Support\\Collection\<\(int\|string\),mixed\>\:\:map\(\) expects callable\(mixed, int\|string\)\: \(array\<string, array\>\|non\-falsy\-string\), Closure\(array\|string\)\: \(array\<string, array\>\|non\-falsy\-string\) given\.$#'
+			message: '#^Parameter \#1 \$callback of method Cn\\Support\\Collection\<\(int\|string\),mixed\>\:\:map\(\) expects callable\(mixed, int\|string\)\: \(array\<string, array\>\|non\-falsy\-string\), Closure\(array\|string\)\: \(array\<string, array\>\|non\-falsy\-string\) given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Parameter \#1 \$callback of method TailwindMerge\\Support\\Collection\<\(int\|string\),mixed\>\:\:mapWithKeys\(\) expects callable\(mixed, int\|string\)\: array\<non\-falsy\-string, array\>, Closure\(array, string\)\: non\-empty\-array\<non\-falsy\-string, array\> given\.$#'
+			message: '#^Parameter \#1 \$callback of method Cn\\Support\\Collection\<\(int\|string\),mixed\>\:\:mapWithKeys\(\) expects callable\(mixed, int\|string\)\: array\<non\-falsy\-string, array\>, Closure\(array, string\)\: non\-empty\-array\<non\-falsy\-string, array\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Parameter \#1 \$classDefinition of static method TailwindMerge\\Support\\ClassMap\:\:isThemeGetter\(\) expects array\|\(callable\(\)\: mixed\)\|TailwindMerge\\ValueObjects\\ThemeGetter, mixed given\.$#'
+			message: '#^Parameter \#1 \$classDefinition of static method Cn\\Support\\ClassMap\:\:isThemeGetter\(\) expects array\|\(callable\(\)\: mixed\)\|Cn\\ValueObjects\\ThemeGetter, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Parameter \#1 \$classGroup of static method TailwindMerge\\Support\\ClassMap\:\:processClassesRecursively\(\) expects array, mixed given\.$#'
+			message: '#^Parameter \#1 \$classGroup of static method Cn\\Support\\ClassMap\:\:processClassesRecursively\(\) expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Parameter \#2 \$path of static method TailwindMerge\\Support\\ClassMap\:\:getPart\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$path of static method Cn\\Support\\ClassMap\:\:getPart\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/ClassMap.php
 
 		-
-			message: '#^Parameter \$validator of class TailwindMerge\\ValueObjects\\ClassValidatorObject constructor expects Closure, callable\(\)\: mixed given\.$#'
+			message: '#^Parameter \$validator of class Cn\\ValueObjects\\ClassValidatorObject constructor expects Closure, callable\(\)\: mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/ClassMap.php
@@ -79,7 +79,7 @@ parameters:
 			path: src/Support/Collection.php
 
 		-
-			message: '#^Property TailwindMerge\\Support\\Collection\<TKey of \(int\|string\),TValue\>\:\:\$items \(array\<TKey of \(int\|string\), TValue\>\) does not accept array\<TValue\>\.$#'
+			message: '#^Property Cn\\Support\\Collection\<TKey of \(int\|string\),TValue\>\:\:\$items \(array\<TKey of \(int\|string\), TValue\>\) does not accept array\<TValue\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Support/Collection.php
@@ -97,49 +97,49 @@ parameters:
 			path: src/Support/Config.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\Config\:\:mergePropertyRecursively\(\) has parameter \$baseConfig with no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\Config\:\:mergePropertyRecursively\(\) has parameter \$baseConfig with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/Config.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\Config\:\:mergePropertyRecursively\(\) has parameter \$mergeValue with no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\Config\:\:mergePropertyRecursively\(\) has parameter \$mergeValue with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/Config.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\Config\:\:mergePropertyRecursively\(\) return type has no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\Config\:\:mergePropertyRecursively\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/Config.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\Config\:\:mergePropertyRecursively\(\) should return array\|bool\|float\|int\|string\|null but returns mixed\.$#'
+			message: '#^Method Cn\\Support\\Config\:\:mergePropertyRecursively\(\) should return array\|bool\|float\|int\|string\|null but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Support/Config.php
 
 		-
-			message: '#^Parameter \#1 \$baseConfig of static method TailwindMerge\\Support\\Config\:\:mergePropertyRecursively\(\) expects array, mixed given\.$#'
+			message: '#^Parameter \#1 \$baseConfig of static method Cn\\Support\\Config\:\:mergePropertyRecursively\(\) expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/Config.php
 
 		-
-			message: '#^Parameter \#3 \$mergeValue of static method TailwindMerge\\Support\\Config\:\:mergePropertyRecursively\(\) expects array\|bool\|float\|int\|string\|null, mixed given\.$#'
+			message: '#^Parameter \#3 \$mergeValue of static method Cn\\Support\\Config\:\:mergePropertyRecursively\(\) expects array\|bool\|float\|int\|string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Support/Config.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\Stringable\:\:split\(\) should return TailwindMerge\\Support\\Collection\<int, string\> but returns TailwindMerge\\Support\\Collection\<int, array\{string, int\<0, max\>\}\|string\>\.$#'
+			message: '#^Method Cn\\Support\\Stringable\:\:split\(\) should return Cn\\Support\\Collection\<int, string\> but returns Cn\\Support\\Collection\<int, array\{string, int\<0, max\>\}\|string\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Support/Stringable.php
 
 		-
-			message: '#^Method TailwindMerge\\Support\\TailwindClassParser\:\:__construct\(\) has parameter \$configuration with no value type specified in iterable type array\.$#'
+			message: '#^Method Cn\\Support\\TailwindClassParser\:\:__construct\(\) has parameter \$configuration with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Support/TailwindClassParser.php
@@ -151,13 +151,13 @@ parameters:
 			path: src/Support/TailwindClassParser.php
 
 		-
-			message: '#^Parameter \#1 \$callback of method TailwindMerge\\Support\\Collection\<\(int\|string\),TailwindMerge\\ValueObjects\\ClassValidatorObject\>\:\:first\(\) expects \(callable\(TailwindMerge\\ValueObjects\\ClassValidatorObject, int\|string\)\: bool\)\|null, Closure\(TailwindMerge\\ValueObjects\\ClassValidatorObject\)\: mixed given\.$#'
+			message: '#^Parameter \#1 \$callback of method Cn\\Support\\Collection\<\(int\|string\),Cn\\ValueObjects\\ClassValidatorObject\>\:\:first\(\) expects \(callable\(Cn\\ValueObjects\\ClassValidatorObject, int\|string\)\: bool\)\|null, Closure\(Cn\\ValueObjects\\ClassValidatorObject\)\: mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/TailwindClassParser.php
 
 		-
-			message: '#^Parameter \#1 \$config of static method TailwindMerge\\Support\\ClassMap\:\:create\(\) expects array\{cacheSize\: int, prefix\: string\|null, theme\: array\<string, mixed\>, classGroups\: array\<string, mixed\>, conflictingClassGroups\: array\<string, array\<int, string\>\>, conflictingClassGroupModifiers\: array\<string, array\<int, string\>\>\}, array given\.$#'
+			message: '#^Parameter \#1 \$config of static method Cn\\Support\\ClassMap\:\:create\(\) expects array\{cacheSize\: int, prefix\: string\|null, theme\: array\<string, mixed\>, classGroups\: array\<string, mixed\>, conflictingClassGroups\: array\<string, array\<int, string\>\>, conflictingClassGroupModifiers\: array\<string, array\<int, string\>\>\}, array given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Support/TailwindClassParser.php
@@ -175,19 +175,19 @@ parameters:
 			path: src/TailwindMerge.php
 
 		-
-			message: '#^Method TailwindMerge\\TailwindMerge\:\:getConflictingClassGroupIds\(\) should return array\<string\> but returns array\<mixed\>\.$#'
+			message: '#^Method Cn\\Cn\:\:getConflictingClassGroupIds\(\) should return array\<string\> but returns array\<mixed\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/TailwindMerge.php
 
 		-
-			message: '#^Method TailwindMerge\\TailwindMerge\:\:getConflictingClassGroupIds\(\) should return array\<string\> but returns mixed\.$#'
+			message: '#^Method Cn\\Cn\:\:getConflictingClassGroupIds\(\) should return array\<string\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/TailwindMerge.php
 
 		-
-			message: '#^Method TailwindMerge\\TailwindMerge\:\:withCache\(\) should return string but returns mixed\.$#'
+			message: '#^Method Cn\\Cn\:\:withCache\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 2
 			path: src/TailwindMerge.php
@@ -199,7 +199,7 @@ parameters:
 			path: src/TailwindMerge.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\ArbitraryImageValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\ArbitraryImageValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/ArbitraryImageValidator.php
@@ -211,7 +211,7 @@ parameters:
 			path: src/Validators/ArbitraryImageValidator.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\ArbitraryLengthValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\ArbitraryLengthValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/ArbitraryLengthValidator.php
@@ -223,7 +223,7 @@ parameters:
 			path: src/Validators/ArbitraryLengthValidator.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\ArbitraryNumberValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\ArbitraryNumberValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/ArbitraryNumberValidator.php
@@ -235,7 +235,7 @@ parameters:
 			path: src/Validators/ArbitraryNumberValidator.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\ArbitraryPositionValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\ArbitraryPositionValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/ArbitraryPositionValidator.php
@@ -247,7 +247,7 @@ parameters:
 			path: src/Validators/ArbitraryPositionValidator.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\ArbitraryShadowValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\ArbitraryShadowValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/ArbitraryShadowValidator.php
@@ -259,7 +259,7 @@ parameters:
 			path: src/Validators/ArbitraryShadowValidator.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\ArbitrarySizeValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\ArbitrarySizeValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/ArbitrarySizeValidator.php
@@ -271,7 +271,7 @@ parameters:
 			path: src/Validators/ArbitrarySizeValidator.php
 
 		-
-			message: '#^Method TailwindMerge\\Validators\\IntegerValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
+			message: '#^Method Cn\\Validators\\IntegerValidator\:\:getIsArbitraryValue\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Validators/IntegerValidator.php

@@ -1,9 +1,11 @@
 <?php
 
-namespace TailwindMerge\Validators;
+declare(strict_types=1);
 
-use TailwindMerge\Contracts\ValidatorContract;
-use TailwindMerge\Validators\Concerns\ValidatesArbitraryValue;
+namespace Cn\Validators;
+
+use Cn\Contracts\ValidatorContract;
+use Cn\Validators\Concerns\ValidatesArbitraryValue;
 
 /**
  * @internal

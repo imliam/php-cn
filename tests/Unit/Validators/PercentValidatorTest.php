@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\PercentValidator;
+use Cn\Validators\PercentValidator;
 
 test('is number', function ($input, $output) {
     expect(PercentValidator::validate($input))->toBe($output);

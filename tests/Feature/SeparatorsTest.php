@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 test('single character separator working correctly', function ($input, $output) {
     $instance = TailwindMerge::factory()

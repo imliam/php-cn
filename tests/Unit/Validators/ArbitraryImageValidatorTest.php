@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\ArbitraryImageValidator;
+use Cn\Validators\ArbitraryImageValidator;
 
 test('is arbitrary image', function ($input, $output) {
     expect(ArbitraryImageValidator::validate($input))->toBe($output);

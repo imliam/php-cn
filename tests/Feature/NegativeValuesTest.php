@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('handles negative value conflicts correctly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

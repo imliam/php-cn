@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('merges classes with per-side border colors correctly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

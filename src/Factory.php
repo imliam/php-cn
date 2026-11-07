@@ -1,9 +1,10 @@
 <?php
 
-namespace TailwindMerge;
+namespace Cn;
 
 use Psr\SimpleCache\CacheInterface;
-use TailwindMerge\Support\Config;
+use Cn\Support\CompiledClassMap;
+use Cn\Support\Config;
 
 final class Factory
 {
@@ -38,8 +39,17 @@ final class Factory
      */
     public function make(): TailwindMerge
     {
-        Config::setAdditionalConfig($this->additionalConfiguration);
-        $config = Config::getMergedConfig();
+        if (array_diff_key($this->additionalConfiguration, ['cacheSize' => true, 'prefix' => true, 'separator' => true]) === []) {
+            $prefix = $this->additionalConfiguration['prefix'] ?? null;
+            if (! is_string($prefix) || ! str_ends_with($prefix, '-')) {
+                $classMap = new CompiledClassMap();
+                $config = Config::merge($classMap->configuration(), $this->additionalConfiguration);
+
+                return new TailwindMerge($config, $this->cache, $classMap);
+            }
+        }
+
+        $config = Config::getMergedConfig($this->additionalConfiguration);
 
         return new TailwindMerge($config, $this->cache);
     }

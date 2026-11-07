@@ -1,9 +1,11 @@
 <?php
 
-namespace TailwindMerge\Validators;
+declare(strict_types=1);
 
-use TailwindMerge\Contracts\ValidatorContract;
-use TailwindMerge\Validators\Concerns\ValidatesArbitraryValue;
+namespace Cn\Validators;
+
+use Cn\Contracts\ValidatorContract;
+use Cn\Validators\Concerns\ValidatesArbitraryValue;
 
 /**
  * @internal
@@ -14,6 +16,6 @@ class ArbitraryPositionValidator implements ValidatorContract
 
     public static function validate(string $value): bool
     {
-        return self::getIsArbitraryValue($value, 'position', fn (): bool => false);
+        return self::getIsArbitraryValue($value, ['position', 'percentage'], fn (): bool => false);
     }
 }

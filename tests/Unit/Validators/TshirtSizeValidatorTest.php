@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\TshirtSizeValidator;
+use Cn\Validators\TshirtSizeValidator;
 
 test('is t-shirt size', function ($input, $output) {
     expect(TshirtSizeValidator::validate($input))->toBe($output);

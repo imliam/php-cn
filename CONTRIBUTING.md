@@ -45,6 +45,13 @@ Run all tests:
 composer test
 ```
 
+After changing the default configuration or class-map builder, run
+`composer build:config` to regenerate the compiled lookup tables. The test command
+checks that the generated file matches its inputs. See the
+[upstream maintenance guide](resources/upstream/README.md) for updating Tailwind
+support, and the [compiled table benchmarks](benchmarks/compiled.md) for measuring
+startup, memory, and merge performance.
+
 Check code quality:
 ```bash
 composer test:refactor

@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('merges tailwind classes with important modifier correctly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

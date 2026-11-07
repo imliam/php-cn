@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\ArbitraryLengthValidator;
+use Cn\Validators\ArbitraryLengthValidator;
 
 test('is arbitrary length', function ($input, $output) {
     expect(ArbitraryLengthValidator::validate($input))->toBe($output);

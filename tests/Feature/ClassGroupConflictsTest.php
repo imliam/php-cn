@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('merges classes from same group correctly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

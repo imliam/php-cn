@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('handles color conflicts properly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

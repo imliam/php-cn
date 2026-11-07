@@ -37,3 +37,6 @@ jobs:
 
     - name: Unit Tests
       run: composer test:pest
+
+    - name: Parallel Unit Tests
+      run: composer test:pest -- --parallel

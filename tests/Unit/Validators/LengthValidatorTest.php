@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\LengthValidator;
+use Cn\Validators\LengthValidator;
 
 test('is length', function ($input, $output) {
     expect(LengthValidator::validate($input))->toBe($output);

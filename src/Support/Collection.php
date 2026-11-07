@@ -1,6 +1,6 @@
 <?php
 
-namespace TailwindMerge\Support;
+namespace Cn\Support;
 
 /**
  * @template TKey of array-key

@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\NumberValidator;
+use Cn\Validators\NumberValidator;
 
 test('is number', function ($input, $output) {
     expect(NumberValidator::validate($input))->toBe($output);

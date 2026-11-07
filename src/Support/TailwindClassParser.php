@@ -1,10 +1,9 @@
 <?php
 
-namespace TailwindMerge\Support;
+namespace Cn\Support;
 
-use TailwindMerge\ValueObjects\ClassPartObject;
-use TailwindMerge\ValueObjects\ClassValidatorObject;
-use TailwindMerge\ValueObjects\ParsedClass;
+use Cn\ValueObjects\ClassPartObject;
+use Cn\ValueObjects\ParsedClass;
 
 class TailwindClassParser
 {
@@ -14,80 +13,110 @@ class TailwindClassParser
 
     final public const IMPORTANT_MODIFIER = '!';
 
-    private readonly ClassPartObject $classMap;
+    private readonly ClassPartObject|CompiledClassMap $classMap;
+
+    private readonly string $separator;
+
+    private readonly ?string $prefix;
+
+    /** @var array<string, true> */
+    private readonly array $orderSensitiveModifiers;
+
+    /** @var array<string, true> */
+    private readonly array $postfixLookupClassGroups;
 
     /**
-     * @param  array{cacheSize: int, prefix: ?string, theme: array<string, mixed>, classGroups: array<string, mixed>,conflictingClassGroups: array<string, array<int, string>>, conflictingClassGroupModifiers: array<string, array<int, string>>}  $config
+     * @param  array{theme: array<array-key, mixed>, classGroups: array<array-key, mixed>, prefix?: ?string, separator?: string, orderSensitiveModifiers?: list<string>, postfixLookupClassGroups?: list<string>}  $configuration
      */
-    public function __construct(array $configuration)
+    public function __construct(array $configuration, ?CompiledClassMap $compiledClassMap = null)
     {
-        $this->classMap = ClassMap::create($configuration);
+        $this->classMap = $compiledClassMap ?? ClassMap::create($configuration);
+        $this->separator = $configuration['separator'] ?? ':';
+
+        if ($this->separator === '') {
+            throw new \InvalidArgumentException('The modifier separator must not be empty.');
+        }
+
+        $prefix = $configuration['prefix'] ?? null;
+        $this->prefix = $prefix !== null && $prefix !== '' && ! str_ends_with($prefix, '-')
+            ? $prefix . $this->separator
+            : null;
+        $this->orderSensitiveModifiers = array_fill_keys($configuration['orderSensitiveModifiers'] ?? [], true);
+        $this->postfixLookupClassGroups = array_fill_keys($configuration['postfixLookupClassGroups'] ?? [], true);
     }
 
     /**
-     * @param  array<array-key, string>  $classParts
+     * Walk the trie with byte offsets, avoiding an array and a slice for every class part.
      */
-    private static function getGroupRecursive(array $classParts, ClassPartObject $classPartObject): ?string
+    private static function getGroupRecursive(string $class, int $offset, ClassPartObject $classPartObject): ?string
     {
-        if ($classParts === []) {
-            return $classPartObject->classGroupId;
+        $separatorPosition = strpos($class, self::CLASS_PART_SEPARATOR, $offset);
+        $part = $separatorPosition === false ? substr($class, $offset) : substr($class, $offset, $separatorPosition - $offset);
+        $nextPart = $classPartObject->nextPart[$part] ?? null;
+
+        if ($nextPart !== null) {
+            $group = $separatorPosition === false
+                ? $nextPart->classGroupId
+                : self::getGroupRecursive($class, $separatorPosition + 1, $nextPart);
+
+            if ($group !== null) {
+                return $group;
+            }
         }
 
-        $currentClassPart = $classParts[0] ?? null;
-        $nextClassPartObject = $classPartObject->nextPart[$currentClassPart] ?? null;
-        $classGroupFromNextClassPart = $nextClassPartObject !== null
-            ? self::getGroupRecursive(array_slice($classParts, 1), $nextClassPartObject)
-            : null;
+        if ($classPartObject->validators !== []) {
+            $rest = $offset === 0 ? $class : substr($class, $offset);
 
-        if ($classGroupFromNextClassPart) {
-            return $classGroupFromNextClassPart;
+            foreach ($classPartObject->validators as $validator) {
+                if (($validator->validator)($rest)) {
+                    return $validator->classGroupId;
+                }
+            }
         }
 
-        if ($classPartObject->validators === []) {
-            return null;
-        }
-
-        $classRest = implode(self::CLASS_PART_SEPARATOR, $classParts);
-
-        return Collection::make($classPartObject->validators)->first(fn (ClassValidatorObject $validator) => ($validator->validator)($classRest))?->classGroupId;
+        return null;
     }
 
     public function parse(string $class): ParsedClass
     {
-        [
-            'modifiers' => $modifiers,
-            'hasImportantModifier' => $hasImportantModifier,
-            'baseClassName' => $baseClassName,
-            'maybePostfixModifierPosition' => $maybePostfixModifierPosition
-        ] = $this->splitModifiers($class);
+        $className = $class;
 
-        $classGroupId = $this->getClassGroupId($maybePostfixModifierPosition ? Str::substr($baseClassName, 0, $maybePostfixModifierPosition) : $baseClassName);
+        if ($this->prefix !== null) {
+            if (! str_starts_with($className, $this->prefix)) {
+                return new ParsedClass([], false, false, '', null, $class, $class);
+            }
 
-        $hasPostfixModifier = $maybePostfixModifierPosition !== null;
+            $className = substr($className, strlen($this->prefix));
+        }
 
-        // TODO
-        //        if (!classGroupId) {
-        //            if (!maybePostfixModifierPosition) {
-        //                return {
-        //                    isTailwindClass: false as const,
-        //                    originalClassName,
-        //                        }
-        //                    }
-        //
-        //            classGroupId = getClassGroupId(baseClassName)
-        //
-        //                    if (!classGroupId) {
-        //                        return {
-        //                            isTailwindClass: false as const,
-        //                            originalClassName,
-        //                        }
-        //                    }
-        //
-        //                    hasPostfixModifier = false
-        //                }
+        [$modifiers, $baseClassName, $postfixPosition] = $this->splitModifiers($className);
+        $hasImportantModifier = false;
+
+        if (str_ends_with($baseClassName, self::IMPORTANT_MODIFIER)) {
+            $baseClassName = substr($baseClassName, 0, -1);
+            $hasImportantModifier = true;
+        } elseif (str_starts_with($baseClassName, self::IMPORTANT_MODIFIER)) {
+            $baseClassName = substr($baseClassName, 1);
+            $hasImportantModifier = true;
+            // The slash offset must track the stripped leading important marker.
+            if ($postfixPosition !== null) {
+                $postfixPosition--;
+            }
+        }
+
+        $hasPostfixModifier = $postfixPosition !== null;
+        $classGroupId = $this->getClassGroupId($hasPostfixModifier ? substr($baseClassName, 0, $postfixPosition) : $baseClassName);
+
+        if ($hasPostfixModifier && ($classGroupId === null || isset($this->postfixLookupClassGroups[$classGroupId]))) {
+            $fullClassGroupId = $this->getClassGroupId($baseClassName);
+
+            if ($fullClassGroupId !== null && $fullClassGroupId !== $classGroupId) {
+                $classGroupId = $fullClassGroupId;
+                $hasPostfixModifier = false;
+            }
+        }
 
         $variantModifier = implode(':', $this->sortModifiers($modifiers));
-
         $modifierId = $hasImportantModifier ? $variantModifier . self::IMPORTANT_MODIFIER : $variantModifier;
 
         return new ParsedClass(
@@ -101,102 +130,84 @@ class TailwindClassParser
         );
     }
 
-    private function getClassGroupId(string $class): string
+    private function getClassGroupId(string $class): ?string
     {
-        $classParts = explode(self::CLASS_PART_SEPARATOR, $class);
+        if (str_starts_with($class, '[') && str_ends_with($class, ']')) {
+            $colon = strpos($class, ':');
 
-        // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and remove it from classParts.
-        if ($classParts[0] === '' && count($classParts) !== 1) {
-            array_shift($classParts);
+            return $colon !== false && $colon > 1 ? 'arbitrary..' . substr($class, 1, $colon - 1) : null;
         }
 
-        return self::getGroupRecursive($classParts, $this->classMap) ?: $this->getGroupIdForArbitraryProperty($class);
-    }
+        $offset = str_starts_with($class, '-') && $class !== '-' ? 1 : 0;
 
-    private function getGroupIdForArbitraryProperty(string $className): string
-    {
-        if (Str::match(self::ARBITRARY_PROPERTY_REGEX, $className) !== '' && Str::match(self::ARBITRARY_PROPERTY_REGEX, $className) !== '0') {
-            $arbitraryPropertyClassName = Str::match(self::ARBITRARY_PROPERTY_REGEX, $className);
-            $property = Str::before($arbitraryPropertyClassName, ':');
-
-            if ($property !== '' && $property !== '0') {
-                // I use two dots here because one dot is used as prefix for class groups in plugins
-                return 'arbitrary..' . $property;
-            }
+        if ($this->classMap instanceof CompiledClassMap) {
+            return $this->classMap->getClassGroupId($offset === 0 ? $class : substr($class, 1));
         }
 
-        // TODO: not sure here
-        return $className;
+        return self::getGroupRecursive($class, $offset, $this->classMap);
     }
 
     /**
-     * @return array{modifiers: array<array-key, string>, hasImportantModifier: bool, baseClassName: string, maybePostfixModifierPosition: int|null}
+     * @return array{list<string>, string, ?int}
      */
     private function splitModifiers(string $className): array
     {
-        $separator = isset(Config::getMergedConfig()['separator']) && is_string(Config::getMergedConfig()['separator']) ? Config::getMergedConfig()['separator'] : ':';
-        $isSeparatorSingleCharacter = strlen($separator) === 1;
-        $firstSeparatorCharacter = $separator[0];
-        $separatorLength = strlen($separator);
+        // Most classes have no nested syntax or slash: let PHP split their variants in C.
+        if (strpbrk($className, '[]()/') === false) {
+            $parts = explode($this->separator, $className);
+            $baseClassName = array_pop($parts);
+
+            return [$parts, $baseClassName, null];
+        }
 
         $modifiers = [];
-
         $bracketDepth = 0;
+        $parenDepth = 0;
         $modifierStart = 0;
-        $postfixModifierPosition = null;
+        $postfixPosition = null;
+        $separatorLength = strlen($this->separator);
+        $length = strlen($className);
 
-        for ($index = 0; $index < strlen($className); $index++) {
-            $currentCharacter = $className[$index];
+        for ($index = 0; $index < $length; $index++) {
+            $character = $className[$index];
 
-            if ($bracketDepth === 0) {
-                if (
-                    $currentCharacter === $firstSeparatorCharacter &&
-                    ($isSeparatorSingleCharacter ||
-                        Str::substr($className, $index, $separatorLength) === $separator)
-                ) {
-                    $modifiers[] = Str::substr($className, $modifierStart, $index - $modifierStart);
+            if ($bracketDepth === 0 && $parenDepth === 0) {
+                if ($character === $this->separator[0] && ($separatorLength === 1 || substr($className, $index, $separatorLength) === $this->separator)) {
+                    $modifiers[] = substr($className, $modifierStart, $index - $modifierStart);
                     $modifierStart = $index + $separatorLength;
+                    $index += $separatorLength - 1;
 
                     continue;
                 }
 
-                if ($currentCharacter === '/') {
-                    $postfixModifierPosition = $index;
+                if ($character === '/') {
+                    $postfixPosition = $index;
 
                     continue;
                 }
             }
 
-            if ($currentCharacter === '[') {
+            if ($character === '[') {
                 $bracketDepth++;
-            } elseif ($currentCharacter === ']') {
+            } elseif ($character === ']') {
                 $bracketDepth--;
+            } elseif ($character === '(') {
+                $parenDepth++;
+            } elseif ($character === ')') {
+                $parenDepth--;
             }
         }
 
-        $baseClassNameWithImportantModifier =
-            $modifiers === [] ? $className : Str::substr($className, $modifierStart);
-        $hasImportantModifier =
-            Str::startsWith($baseClassNameWithImportantModifier, self::IMPORTANT_MODIFIER);
-        $baseClassName = $hasImportantModifier
-            ? Str::substr($baseClassNameWithImportantModifier, 1)
-            : $baseClassNameWithImportantModifier;
-
-        $maybePostfixModifierPosition = $postfixModifierPosition && $postfixModifierPosition > $modifierStart
-            ? $postfixModifierPosition - $modifierStart
-            : null;
-
         return [
-            'modifiers' => $modifiers,
-            'hasImportantModifier' => $hasImportantModifier,
-            'baseClassName' => $baseClassName,
-            'maybePostfixModifierPosition' => $maybePostfixModifierPosition,
+            $modifiers,
+            substr($className, $modifierStart),
+            $postfixPosition !== null && $postfixPosition > $modifierStart ? $postfixPosition - $modifierStart : null,
         ];
     }
 
     /**
-     * @param  array<array-key, string>  $modifiers
-     * @return array<array-key, string>
+     * @param  list<string>  $modifiers
+     * @return list<string>
      */
     private function sortModifiers(array $modifiers): array
     {
@@ -204,25 +215,23 @@ class TailwindClassParser
             return $modifiers;
         }
 
-        /**
-         * @var Collection<array-key, string> $sortedModifiers
-         */
-        $sortedModifiers = Collection::make();
-        $unsortedModifiers = Collection::make();
+        $sorted = [];
+        $segment = [];
 
         foreach ($modifiers as $modifier) {
-            $isArbitraryVariant = $modifier[0] === '[';
-
-            if ($isArbitraryVariant) {
-                $sortedModifiers = $sortedModifiers->concat([...$unsortedModifiers->sort()->all(), $modifier]);
-                $unsortedModifiers = Collection::make();
+            if (str_starts_with($modifier, '[') || isset($this->orderSensitiveModifiers[$modifier])) {
+                sort($segment, SORT_STRING);
+                array_push($sorted, ...$segment);
+                $sorted[] = $modifier;
+                $segment = [];
             } else {
-                $unsortedModifiers->add($modifier);
+                $segment[] = $modifier;
             }
         }
 
-        $sortedModifiers = $sortedModifiers->concat($unsortedModifiers->sort());
+        sort($segment, SORT_STRING);
+        array_push($sorted, ...$segment);
 
-        return $sortedModifiers->all();
+        return $sorted;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\ArbitraryPositionValidator;
+use Cn\Validators\ArbitraryPositionValidator;
 
 test('is arbitrary position', function ($input, $output) {
     expect(ArbitraryPositionValidator::validate($input))->toBe($output);

@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 test('createTailwindMerge works with single config function', function ($input, $output) {
     $instance = TailwindMerge::factory()

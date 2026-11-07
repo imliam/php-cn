@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('handles arbitrary property conflicts correctly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

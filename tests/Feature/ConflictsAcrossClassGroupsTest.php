@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('handles conflicts across class groups correctly', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

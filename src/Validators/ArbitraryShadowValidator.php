@@ -1,10 +1,12 @@
 <?php
 
-namespace TailwindMerge\Validators;
+declare(strict_types=1);
 
-use TailwindMerge\Contracts\ValidatorContract;
-use TailwindMerge\Support\Str;
-use TailwindMerge\Validators\Concerns\ValidatesArbitraryValue;
+namespace Cn\Validators;
+
+use Cn\Contracts\ValidatorContract;
+use Cn\Support\Str;
+use Cn\Validators\Concerns\ValidatesArbitraryValue;
 
 /**
  * @internal
@@ -17,7 +19,7 @@ class ArbitraryShadowValidator implements ValidatorContract
 
     public static function validate(string $value): bool
     {
-        return self::getIsArbitraryValue($value, '', self::isShadow(...));
+        return self::getIsArbitraryValue($value, 'shadow', self::isShadow(...));
     }
 
     private static function isShadow(string $value): bool

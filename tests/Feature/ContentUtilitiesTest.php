@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 test('merges content utilities correctly', function () {
     expect(TailwindMerge::instance()->merge("content-['hello'] content-[attr(data-content)]"))->toBe(

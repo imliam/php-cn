@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\TailwindMerge;
+use Cn\TailwindMerge;
 
 it('conflicts across prefix modifiers', function (string $input, string $output) {
     expect(TailwindMerge::instance()->merge($input))

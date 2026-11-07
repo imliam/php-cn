@@ -1,9 +1,10 @@
 <?php
 
-namespace TailwindMerge\Validators;
+declare(strict_types=1);
 
-use TailwindMerge\Contracts\ValidatorContract;
-use TailwindMerge\Support\Str;
+namespace Cn\Validators;
+
+use Cn\Contracts\ValidatorContract;
 
 /**
  * @internal
@@ -12,10 +13,6 @@ class PercentValidator implements ValidatorContract
 {
     public static function validate(string $value): bool
     {
-        if (! Str::endsWith($value, '%')) {
-            return false;
-        }
-
-        return NumberValidator::validate(Str::of($value)->substr(0, -1)->toString());
+        return str_ends_with($value, '%') && NumberValidator::validate(substr($value, 0, -1));
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-namespace TailwindMerge\Contracts;
+declare(strict_types=1);
+
+namespace Cn\Contracts;
 
 /**
  * @internal

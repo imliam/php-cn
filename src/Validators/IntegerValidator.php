@@ -1,24 +1,24 @@
 <?php
 
-namespace TailwindMerge\Validators;
+declare(strict_types=1);
 
-use TailwindMerge\Contracts\ValidatorContract;
-use TailwindMerge\Validators\Concerns\ValidatesArbitraryValue;
+namespace Cn\Validators;
+
+use Cn\Contracts\ValidatorContract;
 
 /**
  * @internal
  */
 class IntegerValidator implements ValidatorContract
 {
-    use ValidatesArbitraryValue;
-
     public static function validate(string $value): bool
     {
-        return self::isIntegerOnly($value);
-    }
+        if (! NumberValidator::validate($value) || str_contains($value, 'Infinity')) {
+            return false;
+        }
 
-    private static function isIntegerOnly(string $value): bool
-    {
-        return (string) (int) $value === $value;
+        $number = is_numeric($value) ? (float) $value : (float) intval($value, 0);
+
+        return is_finite($number) && floor($number) === $number;
     }
 }

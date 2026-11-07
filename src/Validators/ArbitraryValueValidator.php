@@ -1,16 +1,18 @@
 <?php
 
-namespace TailwindMerge\Validators;
+declare(strict_types=1);
 
-use TailwindMerge\Contracts\ValidatorContract;
-use TailwindMerge\Support\Str;
+namespace Cn\Validators;
+
+use Cn\Contracts\ValidatorContract;
+use Cn\Support\Str;
 
 /**
  * @internal
  */
 class ArbitraryValueValidator implements ValidatorContract
 {
-    final public const ARBITRARY_VALUE_REGEX = '/^\[(?:([a-z-]+):)?(.+)\]$/i';
+    final public const ARBITRARY_VALUE_REGEX = '/^\[(?:(\w[\w-]*):)?(.+)\]$/Di';
 
     public static function validate(string $value): bool
     {

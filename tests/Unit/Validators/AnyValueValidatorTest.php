@@ -1,6 +1,6 @@
 <?php
 
-use TailwindMerge\Validators\AnyValueValidator;
+use Cn\Validators\AnyValueValidator;
 
 test('is any value', function ($input, $output) {
     expect(AnyValueValidator::validate($input))->toBe($output);
