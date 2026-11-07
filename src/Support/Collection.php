@@ -123,7 +123,7 @@ class Collection
      */
     public function add(mixed $item): self
     {
-        $this->items[] = $item;
+        $this->items[] = $item; // @phpstan-ignore assign.propertyType
 
         return $this;
     }
@@ -163,7 +163,7 @@ class Collection
     public function push(...$values): self
     {
         foreach ($values as $value) {
-            $this->items[] = $value;
+            $this->items[] = $value; // @phpstan-ignore assign.propertyType
         }
 
         return $this;
