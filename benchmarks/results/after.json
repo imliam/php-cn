@@ -1,0 +1,579 @@
+{
+    "label": "working-tree",
+    "recorded_at": "2026-09-05T21:36:28+00:00",
+    "root": "/Users/liamhammett/projects/tailwind-merge-php",
+    "php_version": "8.5.8",
+    "php_binary": "/Users/liamhammett/Library/Application Support/Herd/bin/php85",
+    "os": "Darwin Liams-MacBook-Pro.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:19:08 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T6050 arm64",
+    "opcache_cli": "0",
+    "jit": "disable",
+    "xdebug_mode_env": "off",
+    "samples_per_case": 7,
+    "loader_version": "standalone-psr4-v1",
+    "benchmark_sha256": {
+        "run.php": "c8786827b1506b963b7c9e91d4e5f06bb185ab7efb70af26c872225157b33d58",
+        "worker.php": "95f6c161322defdff696583dedf0ffad5431a003b57d577862f362b89d0949aa",
+        "bootstrap.php": "3ee6f87434d99a042fe34c6a8324ca26edb979d2bf1413923f9adb1211c644ce"
+    },
+    "source_sha256": {
+        "src/Contracts/TailwindMergeContract.php": "520d2d1d7ae569f379eb18c2cf774a00a1daa56283ecb4b2ebb5086570c5c8fd",
+        "src/Contracts/ValidatorContract.php": "4ec9378af6775cf0f375c161fb7365c0d1e8c06a23e6b1940cf055a280550f72",
+        "src/Factory.php": "2b05dd314b6bc6d3eb20cbd5ee1b793432b3ff8e2689b38c69dec14fe2a8edf4",
+        "src/Support/Arr.php": "cfe6d62200e45ddf4714e54d8807ff2982b4ef17ed5352f3896e17e15bef5b20",
+        "src/Support/BoundedCache.php": "789861763d6360a9cff34a7e1b54a45caf286774f3fe97f797f16328b75eee0b",
+        "src/Support/ClassMap.php": "1c0297ef3ef4247cd71da6d2d7372194266f60f9b19b0a2c16768d87ad2b5879",
+        "src/Support/Collection.php": "977b471831d2c45dbe5b3983014568a83e64359595374e41729dbd4283c56dbd",
+        "src/Support/Config.php": "d1b56ba7c9a71e77aa73310c9c63972b22f8b9d0f71053a0590127d4fbf00e4b",
+        "src/Support/Str.php": "34dd4148b47d5ebd257b88f50d4f2361ca9b35f8fe02ab94a78bbcca8d7029c4",
+        "src/Support/Stringable.php": "f62bdfacc30ccad8f9d270b1a27bcd3e5410ddb9c616cb31675057cc4ba8961b",
+        "src/Support/TailwindClassParser.php": "a4a5b12be85380e2d7e84c3f0ff4e86666c4ada9285bbbbe81c93675e62be148",
+        "src/Support/default-config.php": "c33632dcc1617fbfa1e272f41869cd0ae64b2831e48195ab40d175a6f387d10f",
+        "src/TailwindMerge.php": "1933eceef5dbbd149cf652aaf133b0f9b1e859155b4b27bdbd3c339eb248e931",
+        "src/Validators/AnyNonArbitraryValidator.php": "5741f402155b94aa0db4d6719660cc8cce9c10b9270964dc5bc1737a741d5866",
+        "src/Validators/AnyValueValidator.php": "6aafc8d8d8f0c7108c330de1c15210e3c0d0538ee37d4e478e19ece734fd51e7",
+        "src/Validators/ArbitraryFamilyNameValidator.php": "f9a3017fa73c128bbfead7b4fd08e84dd1fd147c9431db711cc4689fcb1580e2",
+        "src/Validators/ArbitraryImageValidator.php": "f9e2aa234811ade263330bdc2bbd2e7c35f7aa1c0015cd5b3fa5f0ef870497a1",
+        "src/Validators/ArbitraryLengthValidator.php": "abd60460430ee76aba4b3ac735caedfa5801b2f7dac6b32d83550b32c8c92284",
+        "src/Validators/ArbitraryNumberValidator.php": "366a9860300960c8980d7d7d7975c652f755e77ef048d55192563ed8aedb53eb",
+        "src/Validators/ArbitraryPositionValidator.php": "3b08d53ac1858e6f5650c6551992cf42f47a8f32658652922e200582c1d93040",
+        "src/Validators/ArbitraryShadowValidator.php": "376fc3b6b4e1c9c05ddc42c9dde649688a4d27fd0e0b11d2d11c0a238e8e43e5",
+        "src/Validators/ArbitrarySizeValidator.php": "d51987f360f5d1194c8ca49b9b52df0e92f3f70939960627924a891085026588",
+        "src/Validators/ArbitraryValueValidator.php": "6302f9315cf9c9779461a7bf37396fcb49dc0df2f1455e83b1eea0061cb28c56",
+        "src/Validators/ArbitraryVariableFamilyNameValidator.php": "23eaf921e80399ab4f855ab090f8d8e4dd54b24d49a89898a816b7e271edc585",
+        "src/Validators/ArbitraryVariableImageValidator.php": "e4e06522ba10023a3cd5f4eacef193be813370811aa9b89b236b1f1a35206bb2",
+        "src/Validators/ArbitraryVariableLengthValidator.php": "e103a0b7c88bbff347ebab47502b3ac1dbf1844857d7cb7bea6c840632e88810",
+        "src/Validators/ArbitraryVariablePositionValidator.php": "b052764a48a2eed2ad4fa5f65a55cd8a353a25829fa30bde97104650f087ccc4",
+        "src/Validators/ArbitraryVariableShadowValidator.php": "6571328143b9ab550e5a6ea9b8b5dbe5a2570b3718cd8a2f50672aca11b1e7fb",
+        "src/Validators/ArbitraryVariableSizeValidator.php": "6b8df630dbf445bb3d96589a4471042e3e4536cd929d739d8e624c21fb617d36",
+        "src/Validators/ArbitraryVariableValidator.php": "41716bc4529ce48a377452b81bd50a8f7986e15ffcf7ed02d29c11c2ca01fa01",
+        "src/Validators/ArbitraryVariableWeightValidator.php": "06d388001fdc881c1f4ad1cabf21ce738cff7f5ee88f8a48279e73e8dbcc940e",
+        "src/Validators/ArbitraryWeightValidator.php": "fab392419a6f059f48c372968b55bd6fbe30b198d5acb27f84a3e34e837f8bea",
+        "src/Validators/Concerns/ValidatesArbitraryValue.php": "f04bed4ea3fa54da735b1e75bf087dcbe233359cb055d36ca7cc44c9324f2e07",
+        "src/Validators/Concerns/ValidatesArbitraryVariable.php": "c7e20389143eac4ab45ab198f75180e30b05438aad24ed09a38e53719cf674f1",
+        "src/Validators/FractionValidator.php": "de8e273dfc83fff6de96ce6deefd4d2e540fe2c87ff1161c99cac963e50e0f61",
+        "src/Validators/IntegerValidator.php": "4643ed6e4b03b341a9e0d1caaa6c8551f2ba166374a32381558d27a5d99294a3",
+        "src/Validators/LengthValidator.php": "4a12e5f72ab85c1fc4c7354b91c60c518901f01ef4ab8d192e1ffe49759c3ce8",
+        "src/Validators/NamedContainerQueryValidator.php": "7e60ccf3807fc434dffc2590702a5fb186e5e0053b21f676b8dc3d79d006cf6c",
+        "src/Validators/NumberValidator.php": "184af24a79b28eeee453bbc28eda16cc4690e35a4e6dee0cdc5faf71ca16190f",
+        "src/Validators/PercentValidator.php": "98ed45fc105b3d21ad550fcb9b836676b3a9594a5ea12d7e52f0d1788f1a9749",
+        "src/Validators/TshirtSizeValidator.php": "37a865b97c49029d12fb58e1f970a5a705ada0df31cd7a8a985a1de9eaeda005",
+        "src/ValueObjects/ClassPartObject.php": "90ff1e3ea028eddfd8ac80263b90373728d196efe94d8019041e5f453b9f8ec6",
+        "src/ValueObjects/ClassValidatorObject.php": "d8fa151d2135b6e5fa69e1461999dbd270d02a54743a502cb2cfa32e04974348",
+        "src/ValueObjects/ParsedClass.php": "6b6b4fec1c8ff10e0b9e33d8f340bcd45c817960ba4d21d6779e574453067fc9",
+        "src/ValueObjects/ThemeGetter.php": "9b897151e396112406062e829008b247214ca660baa670c3071730d751c3e43e"
+    },
+    "cases": {
+        "cold_first_merge": {
+            "iterations": 1,
+            "median_ns": 2189417,
+            "min_ns": 2112250,
+            "max_ns": 2463208,
+            "samples": [
+                {
+                    "elapsed_ns": 2112250,
+                    "nanoseconds_per_operation": 2112250,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 2189417,
+                    "nanoseconds_per_operation": 2189417,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 2217750,
+                    "nanoseconds_per_operation": 2217750,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 2173792,
+                    "nanoseconds_per_operation": 2173792,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 2168833,
+                    "nanoseconds_per_operation": 2168833,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 2463208,
+                    "nanoseconds_per_operation": 2463208,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 2442208,
+                    "nanoseconds_per_operation": 2442208,
+                    "checksum": 132,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2560864,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "unique_strings": {
+            "iterations": 200,
+            "median_ns": 20622.915,
+            "min_ns": 20438.96,
+            "max_ns": 21681.875,
+            "samples": [
+                {
+                    "elapsed_ns": 4091750,
+                    "nanoseconds_per_operation": 20458.75,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4124583,
+                    "nanoseconds_per_operation": 20622.915,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4120042,
+                    "nanoseconds_per_operation": 20600.21,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4336375,
+                    "nanoseconds_per_operation": 21681.875,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4087792,
+                    "nanoseconds_per_operation": 20438.96,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4148958,
+                    "nanoseconds_per_operation": 20744.79,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4145084,
+                    "nanoseconds_per_operation": 20725.42,
+                    "checksum": 29090,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2628016,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "unique_arbitrary_values": {
+            "iterations": 200,
+            "median_ns": 24737.5,
+            "min_ns": 24525.625,
+            "max_ns": 25795.625,
+            "samples": [
+                {
+                    "elapsed_ns": 4941208,
+                    "nanoseconds_per_operation": 24706.04,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4929834,
+                    "nanoseconds_per_operation": 24649.17,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4947500,
+                    "nanoseconds_per_operation": 24737.5,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4905125,
+                    "nanoseconds_per_operation": 24525.625,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 5011666,
+                    "nanoseconds_per_operation": 25058.33,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 4990208,
+                    "nanoseconds_per_operation": 24951.04,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 5159125,
+                    "nanoseconds_per_operation": 25795.625,
+                    "checksum": 32710,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2634480,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "repeated_default": {
+            "iterations": 2000,
+            "median_ns": 279.3955,
+            "min_ns": 274.7085,
+            "max_ns": 288.8335,
+            "samples": [
+                {
+                    "elapsed_ns": 558791,
+                    "nanoseconds_per_operation": 279.3955,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 555334,
+                    "nanoseconds_per_operation": 277.667,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 562291,
+                    "nanoseconds_per_operation": 281.1455,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 565750,
+                    "nanoseconds_per_operation": 282.875,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 549417,
+                    "nanoseconds_per_operation": 274.7085,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 577667,
+                    "nanoseconds_per_operation": 288.8335,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 557250,
+                    "nanoseconds_per_operation": 278.625,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598288,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "recurring_128": {
+            "iterations": 512,
+            "median_ns": 302.490234375,
+            "min_ns": 294.677734375,
+            "max_ns": 314.453125,
+            "samples": [
+                {
+                    "elapsed_ns": 150875,
+                    "nanoseconds_per_operation": 294.677734375,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 158708,
+                    "nanoseconds_per_operation": 309.9765625,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 156417,
+                    "nanoseconds_per_operation": 305.501953125,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 154416,
+                    "nanoseconds_per_operation": 301.59375,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 161000,
+                    "nanoseconds_per_operation": 314.453125,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 154875,
+                    "nanoseconds_per_operation": 302.490234375,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 150916,
+                    "nanoseconds_per_operation": 294.7578125,
+                    "checksum": 74312,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2715408,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "recurring_1024": {
+            "iterations": 2048,
+            "median_ns": 4408.935546875,
+            "min_ns": 4400.4111328125,
+            "max_ns": 4526.55029296875,
+            "samples": [
+                {
+                    "elapsed_ns": 9019833,
+                    "nanoseconds_per_operation": 4404.21533203125,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 9270375,
+                    "nanoseconds_per_operation": 4526.55029296875,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 9012042,
+                    "nanoseconds_per_operation": 4400.4111328125,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 9029500,
+                    "nanoseconds_per_operation": 4408.935546875,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 9071334,
+                    "nanoseconds_per_operation": 4429.3623046875,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 9126167,
+                    "nanoseconds_per_operation": 4456.13623046875,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 9023459,
+                    "nanoseconds_per_operation": 4405.98583984375,
+                    "checksum": 298836,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3810040,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "nested_array_inputs": {
+            "iterations": 2000,
+            "median_ns": 395.4795,
+            "min_ns": 379.1875,
+            "max_ns": 453.729,
+            "samples": [
+                {
+                    "elapsed_ns": 758375,
+                    "nanoseconds_per_operation": 379.1875,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 763208,
+                    "nanoseconds_per_operation": 381.604,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 797542,
+                    "nanoseconds_per_operation": 398.771,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 790959,
+                    "nanoseconds_per_operation": 395.4795,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 907458,
+                    "nanoseconds_per_operation": 453.729,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 796500,
+                    "nanoseconds_per_operation": 398.25,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 782209,
+                    "nanoseconds_per_operation": 391.1045,
+                    "checksum": 264000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2598720,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        },
+        "external_cache_hits": {
+            "iterations": 20000,
+            "median_ns": 334.62915,
+            "min_ns": 332.37295,
+            "max_ns": 340.1896,
+            "samples": [
+                {
+                    "elapsed_ns": 6647459,
+                    "nanoseconds_per_operation": 332.37295,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 6687667,
+                    "nanoseconds_per_operation": 334.38335,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 6752625,
+                    "nanoseconds_per_operation": 337.63125,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 6692583,
+                    "nanoseconds_per_operation": 334.62915,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 6684667,
+                    "nanoseconds_per_operation": 334.23335,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 6774458,
+                    "nanoseconds_per_operation": 338.7229,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                },
+                {
+                    "elapsed_ns": 6803792,
+                    "nanoseconds_per_operation": 340.1896,
+                    "checksum": 2640000,
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 3089912,
+                    "loaded_merger_file": "/Users/liamhammett/projects/tailwind-merge-php/src/TailwindMerge.php"
+                }
+            ]
+        }
+    }
+}
