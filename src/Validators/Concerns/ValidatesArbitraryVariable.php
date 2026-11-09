@@ -14,7 +14,7 @@ trait ValidatesArbitraryVariable
      */
     protected static function getIsArbitraryVariable(string $value, array $labels, bool $matchWithoutLabel = false): bool
     {
-        if (preg_match(ArbitraryVariableValidator::ARBITRARY_VARIABLE_REGEX, $value, $matches) !== 1) {
+        if (($value[0] ?? '') !== '(' || preg_match(ArbitraryVariableValidator::ARBITRARY_VARIABLE_REGEX, $value, $matches) !== 1) {
             return false;
         }
 

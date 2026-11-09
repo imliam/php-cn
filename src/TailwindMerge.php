@@ -15,6 +15,9 @@ use Cn\ValueObjects\ParsedClass;
  */
 class TailwindMerge implements TailwindMergeContract
 {
+    // Distinct class names are far fewer than distinct inputs, so this memo can hold many more entries.
+    private const CLASS_CACHE_SIZE = 5000;
+
     private static ?self $instance = null;
 
     private ?TailwindClassParser $parser = null;
@@ -22,8 +25,24 @@ class TailwindMerge implements TailwindMergeContract
     /** @var BoundedCache<string> */
     private readonly BoundedCache $results;
 
-    /** @var BoundedCache<ParsedClass> */
-    private readonly BoundedCache $classes;
+    /**
+     * Class name => null when always kept, otherwise its class ID and the IDs it conflicts with.
+     *
+     * @var array<string, array{string, list<string>}|null>
+     */
+    private array $classes = [];
+
+    /** @var array<string, array{string, list<string>}|null> */
+    private array $previousClasses = [];
+
+    /**
+     * Classes with the same modifiers and group share one entry instead of copying its strings.
+     *
+     * @var array<string, array{string, list<string>}>
+     */
+    private array $resolvedGroups = [];
+
+    private readonly int $classCacheSize;
 
     /** @var array<array-key, list<string>> */
     private readonly array $conflictingGroups;
@@ -54,7 +73,7 @@ class TailwindMerge implements TailwindMergeContract
         $cacheSize = $configuration['cacheSize'];
         $cacheSize = max(0, $cacheSize);
         $this->results = new BoundedCache($cacheSize);
-        $this->classes = new BoundedCache($cacheSize);
+        $this->classCacheSize = max($cacheSize, self::CLASS_CACHE_SIZE);
         $this->conflictingGroups = $configuration['conflictingClassGroups'];
         $this->postfixConflictingGroups = $configuration['conflictingClassGroupModifiers'];
     }
@@ -72,25 +91,22 @@ class TailwindMerge implements TailwindMergeContract
             $input = implode(' ', $parts);
         }
 
-        if ($this->cache instanceof CacheInterface) {
-            $key = hash('xxh3', $this->getCacheNamespace() . $input);
-            $cached = $this->cache->get($key);
-            if (is_string($cached)) {
-                return $cached;
-            }
-
-            $result = $this->mergeClassList($input);
-            $this->cache->set($key, $result);
-
-            return $result;
-        }
-
         $cached = $this->results->get($input);
         if ($cached !== null) {
             return $cached;
         }
 
-        $result = $this->mergeClassList($input);
+        if ($this->cache instanceof CacheInterface) {
+            $key = hash('xxh3', $this->getCacheNamespace() . $input);
+            $result = $this->cache->get($key);
+            if (! is_string($result)) {
+                $result = $this->mergeClassList($input);
+                $this->cache->set($key, $result);
+            }
+        } else {
+            $result = $this->mergeClassList($input);
+        }
+
         $this->results->set($input, $result);
 
         return $result;
@@ -124,40 +140,70 @@ class TailwindMerge implements TailwindMergeContract
 
         for ($index = count($classNames) - 1; $index >= 0; $index--) {
             $className = $classNames[$index];
-            $class = $this->classes->get($className);
-            if ($class === null) {
-                $class = $parser->parse($className);
-                $this->classes->set($className, $class);
+            if (array_key_exists($className, $this->classes)) {
+                $resolved = $this->classes[$className];
+            } else {
+                $resolved = array_key_exists($className, $this->previousClasses)
+                    ? $this->previousClasses[$className]
+                    : $this->resolve($parser->parse($className));
+                $this->classes[$className] = $resolved;
+                if (count($this->classes) >= $this->classCacheSize) {
+                    $this->previousClasses = $this->classes;
+                    $this->classes = [];
+                    $this->resolvedGroups = [];
+                }
             }
 
-            $group = $class->classGroupId;
-            if ($group === null) {
+            if ($resolved === null) {
                 $result[] = $className;
 
                 continue;
             }
 
-            // Separate modifier and group IDs so custom names cannot collide.
-            $modifier = $class->modifierId . "\0";
-            $classId = $modifier . $group;
-            if (isset($conflicts[$classId])) {
+            if (isset($conflicts[$resolved[0]])) {
                 continue;
             }
 
-            $conflicts[$classId] = true;
-            foreach ($this->conflictingGroups[$group] ?? [] as $conflictingGroup) {
-                $conflicts[$modifier . $conflictingGroup] = true;
-            }
-            if ($class->hasPostfixModifier) {
-                foreach ($this->postfixConflictingGroups[$group] ?? [] as $conflictingGroup) {
-                    $conflicts[$modifier . $conflictingGroup] = true;
-                }
+            $conflicts[$resolved[0]] = true;
+            foreach ($resolved[1] as $conflictingId) {
+                $conflicts[$conflictingId] = true;
             }
 
             $result[] = $className;
         }
 
         return implode(' ', array_reverse($result));
+    }
+
+    /**
+     * @return array{string, list<string>}|null
+     */
+    private function resolve(ParsedClass $class): ?array
+    {
+        $group = $class->classGroupId;
+        if ($group === null) {
+            return null;
+        }
+
+        // Separate modifier and group IDs so custom names cannot collide.
+        $modifier = $class->modifierId . "\0";
+        $classId = $modifier . $group;
+        $key = $class->hasPostfixModifier ? $classId . "\0/" : $classId;
+        if (isset($this->resolvedGroups[$key])) {
+            return $this->resolvedGroups[$key];
+        }
+
+        $conflicting = [];
+        foreach ($this->conflictingGroups[$group] ?? [] as $conflictingGroup) {
+            $conflicting[] = $modifier . $conflictingGroup;
+        }
+        if ($class->hasPostfixModifier) {
+            foreach ($this->postfixConflictingGroups[$group] ?? [] as $conflictingGroup) {
+                $conflicting[] = $modifier . $conflictingGroup;
+            }
+        }
+
+        return $this->resolvedGroups[$key] = [$classId, $conflicting];
     }
 
     private function getCacheNamespace(): string

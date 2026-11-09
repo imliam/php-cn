@@ -167,8 +167,10 @@ class TailwindClassParser
         $postfixPosition = null;
         $separatorLength = strlen($this->separator);
         $length = strlen($className);
+        // Jump between significant characters in C instead of visiting every byte.
+        $significant = $this->separator[0] . '/[]()';
 
-        for ($index = 0; $index < $length; $index++) {
+        for ($index = strcspn($className, $significant); $index < $length; $index += 1 + strcspn($className, $significant, $index + 1)) {
             $character = $className[$index];
 
             if ($bracketDepth === 0 && $parenDepth === 0) {

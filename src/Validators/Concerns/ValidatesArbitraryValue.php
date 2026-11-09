@@ -15,6 +15,10 @@ trait ValidatesArbitraryValue
      */
     protected static function getIsArbitraryValue(string $value, string|array $labels, callable $isLengthOnly): bool
     {
+        if (($value[0] ?? '') !== '[') {
+            return false;
+        }
+
         $labels = is_string($labels) ? [$labels] : $labels;
 
         preg_match(ArbitraryValueValidator::ARBITRARY_VALUE_REGEX, $value, $result);

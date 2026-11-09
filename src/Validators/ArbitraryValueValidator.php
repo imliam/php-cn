@@ -16,6 +16,6 @@ class ArbitraryValueValidator implements ValidatorContract
 
     public static function validate(string $value): bool
     {
-        return Str::hasMatch(self::ARBITRARY_VALUE_REGEX, $value);
+        return ($value[0] ?? '') === '[' && Str::hasMatch(self::ARBITRARY_VALUE_REGEX, $value);
     }
 }

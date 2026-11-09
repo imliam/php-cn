@@ -1,6 +1,7 @@
 <?php
 
 use Cn\TailwindMerge;
+use Tests\Support\FakeCache;
 
 it('reuses parsed tokens across different inputs', function () {
     $calls = 0;
@@ -17,7 +18,7 @@ it('reuses parsed tokens across different inputs', function () {
         ->and($calls)->toBe(2);
 });
 
-it('disables result and token caches with cacheSize zero', function () {
+it('keeps reusing parsed tokens with cacheSize zero', function () {
     $calls = 0;
     $merge = TailwindMerge::factory()->withConfiguration([
         'cacheSize' => 0,
@@ -31,7 +32,20 @@ it('disables result and token caches with cacheSize zero', function () {
     $merge->merge('custom-one');
     $merge->merge('custom-one');
 
-    expect($calls)->toBe(2);
+    expect($calls)->toBe(1);
+});
+
+it('disables the in-memory result cache with cacheSize zero', function () {
+    $cache = new FakeCache();
+    $merge = TailwindMerge::factory()->withConfiguration(['cacheSize' => 0])->withCache($cache)->make();
+
+    $merge->merge('text-red-500 text-green-500');
+    $merge->merge('text-red-500 text-green-500');
+
+    // Without the in-memory result cache, every repeat reaches the external cache.
+    expect($cache)
+        ->hits->toBe(1)
+        ->misses->toBe(1);
 });
 
 it('reuses the default merger while factories create independent instances', function () {

@@ -15,6 +15,6 @@ class ArbitraryVariableValidator implements ValidatorContract
 
     public static function validate(string $value): bool
     {
-        return preg_match(self::ARBITRARY_VARIABLE_REGEX, $value) === 1;
+        return ($value[0] ?? '') === '(' && preg_match(self::ARBITRARY_VARIABLE_REGEX, $value) === 1;
     }
 }
