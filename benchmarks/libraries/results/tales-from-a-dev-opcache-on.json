@@ -1,0 +1,1188 @@
+{
+    "library": "tales-from-a-dev",
+    "recorded_at": "2026-11-09T01:11:24+00:00",
+    "root": "/private/tmp/twm-bench/tales",
+    "php_version": "8.5.8",
+    "os": "Darwin Liams-MacBook-Pro.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:19:08 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T6050 arm64",
+    "opcache_mode": "on",
+    "xdebug_mode_env": "off",
+    "samples_per_case": 7,
+    "benchmark_sha256": {
+        "run.php": "b0f2b890d3e6ae05c856f9b4250f00cbafd3d8d67b8bac9e238cfc8427d59005",
+        "worker.php": "871c6005fba35778344edbc9cf2dadd29c8c91ff1263e27abf3987785ed70492",
+        "adapters.php": "453f18cc7f8dc7e615c790db9fb08691b21c863f54518441c1ff42cc66356e13"
+    },
+    "source_sha256": {
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/ClassGroupUtils.php": "0bcab3febe3b8e50e2eb1488c950f6d8a20f28192e799aeb5c588bc0ca033d8a",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/ClassListMerger.php": "d34de13a8e31fe05228208d1fab20d6fc5b290d3f82094de5d338a64a110848c",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/ClassMap.php": "cf79a9ae0501b891bec9f4d9021a084bf5dc9fe7ba5ce7d3e12fe298f5eecab5",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/ClassMapCompiler.php": "b0d7d476ab1587423d3d09b5fc26897f91e30b0d1e184f1c71bbb73afe1b7326",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/ClassNameParser.php": "a85ee30a4db71275e4caa95ae843d002a7b1f4496409dcb5b0be525face046ad",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/Config.php": "46c7a6f8a0f106611ea2efc2054d6a84e1b050db1329f213ca78342733d67be0",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/DefaultClassMap.php": "4f9e7b1031322288d852e11991e8016aa11209846b23647504daacacf811e69c",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/LruCache.php": "7a62f961c10d9385966bbc9bfd4c6896adb2f961f0dd3d3ebf7b6887eaa4f4d8",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Support/SortModifiers.php": "c481031bdfff36c0049f501ef15e255eeb2ad4c99935e26e2e476c853a560381",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/TailwindMerge.php": "308b9022b3186992220aa612b03b2cc9d28c3b6e8a5e358c9572d2a1bcd76192",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/TailwindMergeInterface.php": "8b990e6c0b4ca467124489985025f2ae94f022e6d1bc6c28622b168f449482a7",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/AnyNonArbitraryValidator.php": "c8af2d4a33e3e324e22368a43a75e75371fe64429cde54dca72b809681055d3b",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/AnyValidator.php": "f028bd90173b43b4f8ec08761f7fa579897b7d036b955aa7672a5aa0e4b95f73",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueFamilyNameValidator.php": "05b399e7392dbab2466150bdb2da1eaf1170896f1802717a3f3b67e76a1ac3a7",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueImageValidator.php": "81440727cc1f0744e9eede37a2adf37a793e678abbf577450dcfeba9de3da17f",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueLengthValidator.php": "58c0ef3e4039e00db00646ef8a72110372c06e5393f79b0044b74f3aad135aa2",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueNumberValidator.php": "bc2c2435dc3e90892f7ab0bda990c7a1dabe28b6cedd0df269dba15f0eb92db4",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValuePositionValidator.php": "7c37f098b1707959aa9e2dcfe333946abba26d7897e4674176651449fbdcf166",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueShadowValidator.php": "97e5d16424f237ea6d366a5de6673adadd8e90add298b8c6f2be2ebc4a0459df",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueSizeValidator.php": "3b8863df955a303ad3f3eebfdc304c08eff3ec964be53a45d9c2f522355ba0a1",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueValidator.php": "d6205157ff9eab1e2c6ef890931d63cfd80d1d00cbc03bfbde9d4b1e794f1b80",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryValueWeightValidator.php": "5d050ec4a0399f13a5b976f51ef793d0356e1036ec669a38a4714ff845b28045",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableFamilyNameValidator.php": "f7b1bfe190ff8b26fed5c42d7ee257c6c6484a752240f6bcb8f81d2a3962a721",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableImageValidator.php": "5f1e8880cebad86b8d698c6cf4b29d674915742d2d29de278d284f8504c669a6",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableLengthValidator.php": "b3cc9eec05a0f4df1b54ff53a1ef9f7934f6f19585eabe7ab96d2691e5383c05",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariablePositionValidator.php": "3eb5a1407619c9c74fef0c9b984cc48f9706036e97340e33376ad4952007926d",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableShadowValidator.php": "d30c22f9bceb2c1600d153445d5bf4c2f093415326b87405ac1e8584ca6f008a",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableSizeValidator.php": "08a8efe92cd51c9922e9b8cec802f25c872097b4f57c3b32982e8dcb4d89adfb",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableValidator.php": "39048cceb2d7b182e72649851c2f1e19e5be317bf53e82b33bb862c90e0b15d4",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ArbitraryVariableWeightValidator.php": "bfe385328204d681cbd6ebe20def43a4d3162ec98d613cabb3755b010fdce8a4",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/FractionValidator.php": "04b8754c024f972727dc7a8781a83fa24f93b6413586a5cb43214774d30b53c3",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/IntegerValidator.php": "aae20384c8d37c2ba45d28f27456f014b2bec469599ae7984dfa1c9aeef94241",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/LengthValidator.php": "05f9f9d5e3354c0c7e95c6d41011937ebce1582a35c163c7dab780a3371e7b1e",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/NamedContainerQueryValidator.php": "b0d202a359168579b8e72bd1908502080956cbaa58f538910e06d2d839246508",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/NumberValidator.php": "1b970a643fc77a820c04a62082896f6780b37846555d6811dd1b1e7e296d64e2",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/PercentValidator.php": "16bb59dfc3441be69d5a6ac39e5924539336cd44eda9d2ad7d78850f093a4736",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/TshirtSizeValidator.php": "f3bf0f5e43d58405a481adc3c3c16f09bc66040692a1ed8b39b1a8cb8df3dbdf",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ValidateArbitraryVariable.php": "d40c15e5eddfd772f7f21aec7e25a51b918e751401ff82ad430617931d942ff3",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ValidatesArbitraryValue.php": "2a5735a180eede4f8413fe43b248aa04aa78e4754c44eb1ef7566915985031e3",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/Validators/ValidatorInterface.php": "8ac2ca71a3d770fc00276302507a733038d45098d4868b4796312d901242e90d",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/ValueObjects/ClassPartObject.php": "911f770d94e077b4f1c265506535d8cd4986d2980c0bae3fb4cc36e333165dde",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/ValueObjects/ClassValidatorObject.php": "1133ffef0dae9b7dc92df319817ad2b270f9b91f1761e288da058170a0da4dbd",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/ValueObjects/ParsedClassName.php": "c24b79fc32489c9079cb4836fec04eafdcb7f4d65be1bb0daf9071f5c36ee203",
+        "vendor/tales-from-a-dev/tailwind-merge-php/src/ValueObjects/ThemeGetter.php": "cfac6545c1b68f25e9c7f2ad058fab099cf3961ec8a19f09fef207a01f9c4d69"
+    },
+    "cases": {
+        "cold_first_merge": {
+            "iterations": 1,
+            "median_ns": 196458,
+            "min_ns": 184000,
+            "max_ns": 222333,
+            "samples": [
+                {
+                    "elapsed_ns": 198250,
+                    "nanoseconds_per_operation": 198250,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 196458,
+                    "nanoseconds_per_operation": 196458,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 218167,
+                    "nanoseconds_per_operation": 218167,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 184000,
+                    "nanoseconds_per_operation": 184000,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 188333,
+                    "nanoseconds_per_operation": 188333,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 222333,
+                    "nanoseconds_per_operation": 222333,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 192875,
+                    "nanoseconds_per_operation": 192875,
+                    "checksum": 132,
+                    "outputs": [
+                        "inline-flex items-center justify-center rounded-md text-sm font-medium text-white focus:ring-2 px-4 py-2 bg-red-500 hover:bg-red-600"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1238176,
+                    "used_memory_after_bytes": 1234624,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "unique_strings": {
+            "iterations": 1000,
+            "median_ns": 3170.583,
+            "min_ns": 3049.916,
+            "max_ns": 3760.458,
+            "samples": [
+                {
+                    "elapsed_ns": 3137750,
+                    "nanoseconds_per_operation": 3137.75,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3298167,
+                    "nanoseconds_per_operation": 3298.167,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3760458,
+                    "nanoseconds_per_operation": 3760.458,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3185458,
+                    "nanoseconds_per_operation": 3185.458,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3049916,
+                    "nanoseconds_per_operation": 3049.916,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3170583,
+                    "nanoseconds_per_operation": 3170.583,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3147625,
+                    "nanoseconds_per_operation": 3147.625,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1677344,
+                    "used_memory_after_bytes": 1671320,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "unique_arbitrary_values": {
+            "iterations": 1000,
+            "median_ns": 5310.459,
+            "min_ns": 5230,
+            "max_ns": 5793.375,
+            "samples": [
+                {
+                    "elapsed_ns": 5310459,
+                    "nanoseconds_per_operation": 5310.459,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5281292,
+                    "nanoseconds_per_operation": 5281.292,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5340292,
+                    "nanoseconds_per_operation": 5340.292,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5230000,
+                    "nanoseconds_per_operation": 5230,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5347458,
+                    "nanoseconds_per_operation": 5347.458,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5263625,
+                    "nanoseconds_per_operation": 5263.625,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5793375,
+                    "nanoseconds_per_operation": 5793.375,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2639720,
+                    "used_memory_after_bytes": 2633616,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "realistic_mix": {
+            "iterations": 1200,
+            "median_ns": 1380.7983333333334,
+            "min_ns": 1338.8541666666667,
+            "max_ns": 1668.3675,
+            "samples": [
+                {
+                    "elapsed_ns": 1656958,
+                    "nanoseconds_per_operation": 1380.7983333333334,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 2002041,
+                    "nanoseconds_per_operation": 1668.3675,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1647000,
+                    "nanoseconds_per_operation": 1372.5,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1668458,
+                    "nanoseconds_per_operation": 1390.3816666666667,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1658167,
+                    "nanoseconds_per_operation": 1381.8058333333333,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1637792,
+                    "nanoseconds_per_operation": 1364.8266666666666,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1606625,
+                    "nanoseconds_per_operation": 1338.8541666666667,
+                    "checksum": 84300,
+                    "outputs": [
+                        "flex flex-col gap-2 md:flex-row p-6 md:gap-8",
+                        "rounded-lg border border-gray-200 bg-white dark:border-gray-800 shadow-md dark:bg-black",
+                        "font-medium hover:text-gray-700 focus-visible:outline-2 text-base text-blue-600",
+                        "inset-0 h-full w-full object-cover relative z-10 opacity-75",
+                        "grid grid-cols-1 sm:grid-cols-2 xl:gap-x-8 gap-4 lg:grid-cols-3",
+                        "mx-auto sm:px-6 lg:px-8 max-w-2xl px-2",
+                        "h-[42px] text-[13px] [mask-type:luminance] w-full bg-[rgb(0,0,0)]",
+                        "inline-block truncate align-middle ml-2 mt-0 tracking-wide whitespace-normal",
+                        "ring-inset ring-gray-300 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ring-0 focus:ring-red-500",
+                        "transition-colors ease-in-out active:bg-gray-100 group-hover:underline duration-300 hover:bg-gray-100",
+                        "scroll-smooth snap-mandatory overflow-visible snap-y",
+                        "text-xl sm:text-2xl lg:text-4xl font-serif text-center font-semibold"
+                    ],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1324768,
+                    "used_memory_after_bytes": 1319856,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "unique_strings_default": {
+            "iterations": 1000,
+            "median_ns": 3485.5,
+            "min_ns": 3409.125,
+            "max_ns": 3710.041,
+            "samples": [
+                {
+                    "elapsed_ns": 3485500,
+                    "nanoseconds_per_operation": 3485.5,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3518375,
+                    "nanoseconds_per_operation": 3518.375,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3460959,
+                    "nanoseconds_per_operation": 3460.959,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3487208,
+                    "nanoseconds_per_operation": 3487.208,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3710041,
+                    "nanoseconds_per_operation": 3710.041,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3409125,
+                    "nanoseconds_per_operation": 3409.125,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 3439292,
+                    "nanoseconds_per_operation": 3439.292,
+                    "checksum": 145890,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1958592,
+                    "used_memory_after_bytes": 1952760,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "unique_arbitrary_values_default": {
+            "iterations": 1000,
+            "median_ns": 5671.833,
+            "min_ns": 5627.708,
+            "max_ns": 5854.125,
+            "samples": [
+                {
+                    "elapsed_ns": 5829833,
+                    "nanoseconds_per_operation": 5829.833,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5805208,
+                    "nanoseconds_per_operation": 5805.208,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5854125,
+                    "nanoseconds_per_operation": 5854.125,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5649708,
+                    "nanoseconds_per_operation": 5649.708,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5627708,
+                    "nanoseconds_per_operation": 5627.708,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5671833,
+                    "nanoseconds_per_operation": 5671.833,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5641125,
+                    "nanoseconds_per_operation": 5641.125,
+                    "checksum": 164020,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2950016,
+                    "used_memory_after_bytes": 2944136,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "unique_tokens_default": {
+            "iterations": 1000,
+            "median_ns": 18351,
+            "min_ns": 17990.417,
+            "max_ns": 20068.167,
+            "samples": [
+                {
+                    "elapsed_ns": 17990417,
+                    "nanoseconds_per_operation": 17990.417,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 18064708,
+                    "nanoseconds_per_operation": 18064.708,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 18351000,
+                    "nanoseconds_per_operation": 18351,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 18604583,
+                    "nanoseconds_per_operation": 18604.583,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 18359875,
+                    "nanoseconds_per_operation": 18359.875,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 18285792,
+                    "nanoseconds_per_operation": 18285.792,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 20068167,
+                    "nanoseconds_per_operation": 20068.167,
+                    "checksum": 220000,
+                    "outputs": [],
+                    "peak_memory_bytes": 6291456,
+                    "peak_used_memory_bytes": 4924912,
+                    "used_memory_after_bytes": 4918984,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "repeated_default": {
+            "iterations": 20000,
+            "median_ns": 269.45,
+            "min_ns": 266.3146,
+            "max_ns": 276.75625,
+            "samples": [
+                {
+                    "elapsed_ns": 5535125,
+                    "nanoseconds_per_operation": 276.75625,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5416000,
+                    "nanoseconds_per_operation": 270.8,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5339708,
+                    "nanoseconds_per_operation": 266.9854,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5413083,
+                    "nanoseconds_per_operation": 270.65415,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5359834,
+                    "nanoseconds_per_operation": 267.9917,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5326292,
+                    "nanoseconds_per_operation": 266.3146,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5389000,
+                    "nanoseconds_per_operation": 269.45,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767056,
+                    "used_memory_after_bytes": 1763288,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "recurring_128": {
+            "iterations": 4096,
+            "median_ns": 294.44384765625,
+            "min_ns": 287.892578125,
+            "max_ns": 299.418212890625,
+            "samples": [
+                {
+                    "elapsed_ns": 1196875,
+                    "nanoseconds_per_operation": 292.205810546875,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1213958,
+                    "nanoseconds_per_operation": 296.37646484375,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1193500,
+                    "nanoseconds_per_operation": 291.3818359375,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1216500,
+                    "nanoseconds_per_operation": 296.9970703125,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1206042,
+                    "nanoseconds_per_operation": 294.44384765625,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1226417,
+                    "nanoseconds_per_operation": 299.418212890625,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 1179208,
+                    "nanoseconds_per_operation": 287.892578125,
+                    "checksum": 594496,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1423632,
+                    "used_memory_after_bytes": 1415696,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "recurring_1024": {
+            "iterations": 8192,
+            "median_ns": 2662.348388671875,
+            "min_ns": 2634.3790283203125,
+            "max_ns": 2698.59814453125,
+            "samples": [
+                {
+                    "elapsed_ns": 21589916,
+                    "nanoseconds_per_operation": 2635.48779296875,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 21580833,
+                    "nanoseconds_per_operation": 2634.3790283203125,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 21689916,
+                    "nanoseconds_per_operation": 2647.69482421875,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 21809958,
+                    "nanoseconds_per_operation": 2662.348388671875,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 22106916,
+                    "nanoseconds_per_operation": 2698.59814453125,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 21968333,
+                    "nanoseconds_per_operation": 2681.6812744140625,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 21982792,
+                    "nanoseconds_per_operation": 2683.4462890625,
+                    "checksum": 1195344,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 2183592,
+                    "used_memory_after_bytes": 2102328,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "nested_array_inputs": {
+            "iterations": 20000,
+            "median_ns": 405.3604,
+            "min_ns": 397.85625,
+            "max_ns": 412.8104,
+            "samples": [
+                {
+                    "elapsed_ns": 8247375,
+                    "nanoseconds_per_operation": 412.36875,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 8111334,
+                    "nanoseconds_per_operation": 405.5667,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 7957125,
+                    "nanoseconds_per_operation": 397.85625,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 8036292,
+                    "nanoseconds_per_operation": 401.8146,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 8048250,
+                    "nanoseconds_per_operation": 402.4125,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 8107208,
+                    "nanoseconds_per_operation": 405.3604,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 8256208,
+                    "nanoseconds_per_operation": 412.8104,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767488,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        },
+        "external_cache_hits": {
+            "iterations": 20000,
+            "median_ns": 267.66875,
+            "min_ns": 260.54375,
+            "max_ns": 271.08335,
+            "samples": [
+                {
+                    "elapsed_ns": 5370792,
+                    "nanoseconds_per_operation": 268.5396,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5361250,
+                    "nanoseconds_per_operation": 268.0625,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5210875,
+                    "nanoseconds_per_operation": 260.54375,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5281042,
+                    "nanoseconds_per_operation": 264.0521,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5298375,
+                    "nanoseconds_per_operation": 264.91875,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5421667,
+                    "nanoseconds_per_operation": 271.08335,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                },
+                {
+                    "elapsed_ns": 5353375,
+                    "nanoseconds_per_operation": 267.66875,
+                    "checksum": 2640000,
+                    "outputs": [],
+                    "peak_memory_bytes": 4194304,
+                    "peak_used_memory_bytes": 1767112,
+                    "used_memory_after_bytes": 1763720,
+                    "opcache_enabled": true,
+                    "loaded_merger_class": "TalesFromADev\\TailwindMerge\\TailwindMerge"
+                }
+            ]
+        }
+    }
+}

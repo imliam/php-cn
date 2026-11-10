@@ -143,7 +143,7 @@ $tw->merge(['h-10', 'h-20'], 'h-30', ['h-40']); // h-40
 
 The default merger uses compiled lookup tables shipped with the package. No application build step is required. Each merger caches complete results and parsed classes in memory. `TailwindMerge::instance()` returns a shared default merger. Use the factory for an independent instance with its own configuration and caches.
 
-The `cacheSize` option defaults to 500 entries per generation. Each of the two caches keeps at most two generations, so memory use stays bounded in long-running workers. Set `cacheSize` to `0` to disable both caches:
+The `cacheSize` option defaults to 500 result entries per generation. The parsed-class cache holds `cacheSize` or 5,000 entries per generation, whichever is larger, since distinct class names are far fewer than distinct inputs. Each cache keeps at most two generations, so memory use stays bounded in long-running workers. Set `cacheSize` to `0` to disable the result cache. The parsed-class cache stays on, since its size is bounded regardless:
 
 ```php
 $tw = TailwindMerge::factory()->withConfiguration(['cacheSize' => 0])->make();
@@ -159,7 +159,7 @@ TailwindMerge::factory()
   ->make();
 ```
 
-External cache keys include the configuration. Equivalent configurations can share results across instances and requests. Configurations containing anonymous or bound validator closures use a separate namespace per merger, since their behavior cannot be safely serialized. External caching replaces the in-memory result cache; the parsed-class cache still uses `cacheSize`. Validators should be deterministic for the lifetime of a merger.
+External cache keys include the configuration. Equivalent configurations can share results across instances and requests. Configurations containing anonymous or bound validator closures use a separate namespace per merger, since their behavior cannot be safely serialized. The in-memory result cache sits in front of the external cache, so a merger only reads the external cache the first time it sees an input. Validators should be deterministic for the lifetime of a merger.
 
 ## Configuration
 
@@ -233,30 +233,21 @@ Review these behavior changes when moving from the Tailwind 3 implementation:
 
 Two edge cases deliberately correct upstream behavior: slash line heights work with the legacy leading `!` marker, and custom group IDs cannot collide with a concatenation of another group ID and its variants.
 
-The [benchmark report](benchmarks/README.md) contains reproducible before/after measurements and the optimizations informed by `cn`.
-
 ## Benchmarks
 
-Measured on PHP 8.5.8, macOS ARM64, using medians of seven isolated processes with identical autoloaders. These results measure the `TailwindMerge::merge()` API at the recorded revisions, before the `cn()` helper was added.
+php-cn compared with [tales-from-a-dev/tailwind-merge-php](https://github.com/tales-from-a-dev/tailwind-merge-php) and [gehrisandro/tailwind-merge-php](https://github.com/gehrisandro/tailwind-merge-php). Times are µs per merge with OPcache on; lower is better.
 
-The [original Tailwind 3 to 4 comparison](benchmarks/README.md) measured **39–46× faster uncached merges**, from 939–969 µs to 21–25 µs, with OPcache disabled. That comparison used the intermediate Tailwind 4 engine, before compiled defaults.
+| | php-cn | tales-from-a-dev | gehrisandro |
+| --- | ---: | ---: | ---: |
+| First merge | **126** | 196 | 932 |
+| New input | 3.6 | **3.5** | 841 |
+| Repeated input | **0.26** | 0.27 | 813 |
+| Startup memory | **0.78 MB** | 1.24 MB | 1.38 MB |
 
-The [compiled-table experiment](benchmarks/compiled.md) then compared that Tailwind 4 engine with generated default lookup tables:
+- php-cn and tales-from-a-dev merge at about the same speed. php-cn starts 1.6× faster and uses 37% less memory.
+- gehrisandro has no in-memory cache, so every merge takes about 1 ms unless you give it an external cache.
 
-| Workload | OPcache | Runtime configuration | Compiled defaults |
-| --- | --- | ---: | ---: |
-| First merger and merge | Off | 2,255 µs | 1,259 µs |
-| First merger and merge | Prewarmed | 654 µs | 125 µs |
-| Uncached component merge | Off | 20.57 µs | 22.12 µs |
-| Uncached component merge | Prewarmed | 19.98 µs | 20.11 µs |
-| Repeated cached merge | Off | 0.286 µs | 0.288 µs |
-| Repeated cached merge | Prewarmed | 0.272 µs | 0.266 µs |
-
-Compiled defaults reduce initialization time by **1.79× without OPcache** and **5.22× with prewarmed bytecode**. Cold peak PHP-used memory falls **13%** and **49.5%**, respectively, while cached library scripts use about **200 KiB more shared OPcache memory**. Custom configurations retain the runtime path.
-
-The ordinary uncached, arbitrary-value, and recurring workloads take 5–8% longer without OPcache. Warm workloads with OPcache remain within about 2% of the baseline. Prewarming compiles source files outside the timer without initializing a merger; these first-use figures exclude PHP process startup and do not measure complete PHP-FPM request latency.
-
-Both reports include raw samples, source hashes, methodology, and reproduction commands. The compiled comparison also preserves its baseline source archive.
+See [benchmarks](benchmarks/README.md) for every workload, the method, and earlier php-cn revisions.
 
 ## Contributing
 
