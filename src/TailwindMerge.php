@@ -155,7 +155,10 @@ class TailwindMerge implements TailwindMergeContract
             }
 
             if ($resolved === null) {
-                $result[] = $className;
+                if (! isset($seen[$className])) {
+                    $seen[$className] = true;
+                    $result[] = $className;
+                }
 
                 continue;
             }

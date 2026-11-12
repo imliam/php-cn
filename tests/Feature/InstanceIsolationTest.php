@@ -33,9 +33,9 @@ it('does not share cached results across configurations', function () {
         ->and($custom->merge('font-bold p-4'))->toBe('p-4');
 });
 
-it('keeps unknown classes including duplicates and zero', function () {
+it('keeps unknown classes including zero and drops their duplicates', function () {
     expect(TailwindMerge::instance()->merge('custom custom 0 p-2 p-4'))
-        ->toBe('custom custom 0 p-4');
+        ->toBe('custom 0 p-4');
 });
 
 it('shares external results between equivalent serializable configurations', function () {
